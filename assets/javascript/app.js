@@ -45,7 +45,8 @@ console.log(availAnswers[0].d);
 var score = 0;
 
 //time displays, need to set a variable for the interval
-var time = 61;
+var time = 10;
+
 
 function reset() {
   $(".time").text("00:00");
@@ -67,6 +68,19 @@ function count() {
   time--;
   var converted = timeConverter(time);
   $(".time").text(converted);
+
+  if (time == 0) {
+    stop();
+    console.log(time);
+    document.querySelector(".myQuestion").innerHTML = "Game Over!";
+      $(".myScore").append("<h3 class='score'>" + score + "</h3>");
+      $(".button1").remove();
+      $(".button2").remove();
+      $(".button3").remove();
+      $(".button4").remove();
+      document.querySelector(".score").innerHTML = "You got: " + score + " out of " + questions.length + " questions correct.";
+
+  }
 }
 
 // convert the time to minutes and seconds
@@ -100,7 +114,7 @@ function timeConverter(t) {
 //I want the question index to start at the first question
 var questionIndex = 0;
 //do not need an "answerIndex" because question index's value is only a number that is meant to advance upwards
-
+start();
 function renderQuestion() {
     // If there are still more questions, render the next one.
     if (questionIndex <= (questions.length - 1)) {
@@ -120,7 +134,6 @@ function renderQuestion() {
       
 
       function game() {
-      start();
       $(".btn").on("click",function(){
         console.log($(this).text())
         console.log(availAnswers[questionIndex].a);
@@ -137,8 +150,8 @@ function renderQuestion() {
 
         }
         game();
-        // startClock();
     }
+
     // If there aren't, render the end game screen.
     else {
       document.querySelector(".myQuestion").innerHTML = "Game Over!";
@@ -148,9 +161,10 @@ function renderQuestion() {
       $(".button3").remove();
       $(".button4").remove();
       document.querySelector(".score").innerHTML = "You got: " + score + " out of " + questions.length + " questions correct.";
+      stop();
     }
     //now I need to display a timer for the game
-    $(".time").text("01:01");
+    $(".time").text("00:" + time);
 
     
     
