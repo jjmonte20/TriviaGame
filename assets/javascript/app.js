@@ -45,15 +45,20 @@ console.log(availAnswers[0].d);
 var score = 0;
 
 //time displays, need to set a variable for the interval
-var time = 10;
+var time = 119;
 
-
-function reset() {
-  $(".time").text("00:00");
-  score = 0;
-  // renderQuestion(questions[0]);
-}
+// need a function that resets the game
+// function reset() {
+//   $(".time").text("00:59");
+//   score = 0;
+//   questionIndex = 0;
+//   renderQuestion();
+//   start();
+// }
 // start function
+
+$(document).ready(function(){
+
 function start() {
   intervalId = setInterval(count, 1000);
 }
@@ -72,12 +77,14 @@ function count() {
   if (time == 0) {
     stop();
     console.log(time);
+    //placing end game conditions here allow the game to end with a timeout or the questions running out
     document.querySelector(".myQuestion").innerHTML = "Game Over!";
       $(".myScore").append("<h3 class='score'>" + score + "</h3>");
       $(".button1").remove();
       $(".button2").remove();
       $(".button3").remove();
       $(".button4").remove();
+      $(".button5holder").html("<button type='button' class='btn btn-light button5'>" + "Reset" + "</button>");
       document.querySelector(".score").innerHTML = "You got: " + score + " out of " + questions.length + " questions correct.";
 
   }
@@ -114,7 +121,11 @@ function timeConverter(t) {
 //I want the question index to start at the first question
 var questionIndex = 0;
 //do not need an "answerIndex" because question index's value is only a number that is meant to advance upwards
+
+// start the clock here
 start();
+
+
 function renderQuestion() {
     // If there are still more questions, render the next one.
     if (questionIndex <= (questions.length - 1)) {
@@ -160,18 +171,26 @@ function renderQuestion() {
       $(".button2").remove();
       $(".button3").remove();
       $(".button4").remove();
+      $(".button5holder").html("<button type='button' class='btn btn-light button5'>" + "Reset" + "</button>");
       document.querySelector(".score").innerHTML = "You got: " + score + " out of " + questions.length + " questions correct.";
       stop();
+      
     }
-    //now I need to display a timer for the game
-    $(".time").text("00:" + time);
-
+    
+    
     
     
   }
+  renderQuestion();
+});
 
 //   renderQuestion();
-
+// need to make a function to reset the game
+// function resetButton() {
+  // $(".button5").on("click", function() {
+  //  reset();
+  // })
+// }
 
 
 
@@ -244,4 +263,3 @@ function renderQuestion() {
     // }
 
     // game();
-    renderQuestion();
