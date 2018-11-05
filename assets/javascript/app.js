@@ -45,7 +45,7 @@ console.log(availAnswers[0].d);
 var score = 0;
 
 //time displays, need to set a variable for the interval
-var time = 119;
+var time = 120;
 
 // need a function that resets the game
 // function reset() {
@@ -186,12 +186,14 @@ function renderQuestion() {
     console.log("button5works");
     score = 0;
     questionIndex = 0;
-    time = 119;
+    time = 120;
     renderQuestion();
+    $(".time").text("02:00");
     start();
     $(".score").remove();
     $(".button5").remove();
-  })
+  });
+  $(".time").text("02:00");
   
   //   console.log("button5works");
   //   score = 0;
