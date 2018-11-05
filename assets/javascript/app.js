@@ -182,7 +182,31 @@ function renderQuestion() {
     
   }
   renderQuestion();
+  $(document.body).on("click", ".button5", function(){
+    console.log("button5works");
+    score = 0;
+    questionIndex = 0;
+    time = 119;
+    renderQuestion();
+    start();
+    $(".score").remove();
+    $(".button5").remove();
+  })
+  
+  //   console.log("button5works");
+  //   score = 0;
+  //   questionIndex = 0;
+  //   time = 119;
+  //   renderQuestion();
+  //   start();
+  
+
+
 });
+
+  // $(document.body).on("click", ".button5", function(){
+  //   console.log("button5works");
+  // })
 
 //   renderQuestion();
 // need to make a function to reset the game
