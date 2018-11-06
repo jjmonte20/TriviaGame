@@ -136,10 +136,10 @@ function renderQuestion() {
     //   document.querySelector(".button4").innerHTML = availAnswers[questionIndex].d;
 
         // ^^ these work, but now I want them to generate the button and filler rather than always appear
-      $(".button1holder").html("<button type='button' class='btn btn-light button1'>" + availAnswers[questionIndex].a + "</button>");
-      $(".button2holder").html("<button type='button' class='btn btn-light button2'>" + availAnswers[questionIndex].b + "</button>");
-      $(".button3holder").html("<button type='button' class='btn btn-light button3'>" + availAnswers[questionIndex].c + "</button>");
-      $(".button4holder").html("<button type='button' class='btn btn-light button4'>" + availAnswers[questionIndex].d + "</button>");
+      $(".button1holder").html("<button type='button' class='btn btn-primary button1'>" + availAnswers[questionIndex].a + "</button>");
+      $(".button2holder").html("<button type='button' class='btn btn-success button2'>" + availAnswers[questionIndex].b + "</button>");
+      $(".button3holder").html("<button type='button' class='btn btn-danger button3'>" + availAnswers[questionIndex].c + "</button>");
+      $(".button4holder").html("<button type='button' class='btn btn-warning button4'>" + availAnswers[questionIndex].d + "</button>");
 
       
       
@@ -150,10 +150,12 @@ function renderQuestion() {
         console.log(availAnswers[questionIndex].a);
         if(questions[questionIndex].a !== $(this).text()){
         console.log("wrong");
+        alert("The correct answer is " + questions[questionIndex].a);
         questionIndex++;
         renderQuestion();
         } else {
         console.log("correct");
+        alert("Correct!");
         questionIndex++;
         score++;
         renderQuestion();
