@@ -10,16 +10,16 @@
 
 //next thing will be to make an array of questions
 var questions = [
-    {q: "What game console was the original Super Smash Brothers on?", a: "Nintendo 64"},
-    {q: "What is the greatest selling video game console of all time?", a: "Playstation 2"},
-    {q: "Which popular fighting game title ushered the creation of the ESRB ratings system for its violent content?", a: "Mortal Kombat"},
-    {q: "Which now popular RPG series started as a 'final' attempt by their game studio to compete in the game industry?", a: "Final Fantasy"},
-    {q: "What video game console was the last to be produced by popular game company SEGA?", a: "Dreamcast"},
+    {q: "What game console was the original Super Smash Brothers on?", a: "Nintendo 64", img: "../images/N64image.png"},
+    {q: "What is the greatest selling video game console of all time?", a: "Playstation 2", img: "../images/playstation2.jpg"},
+    {q: "Which popular fighting game title ushered the creation of the ESRB ratings system for its violent content?", a: "Mortal Kombat", img: "../images/MortalKombat.png"},
+    {q: "Which now popular RPG series started as a 'final' attempt by their game studio to compete in the game industry?", a: "Final Fantasy", img: "../images/finaFantasy.jpg"},
+    {q: "What video game console was the last to be produced by popular game company SEGA?", a: "Dreamcast", img: "../images/SegaDreamcast.png"},
     {q: "What major software company converted their gaming division into the hardware platform for Xbox", a: "Microsoft"},
-    {q: "Which of these popular gaming characters is often considered the 'Mascot' of videogames?", a: "Mario"},
-    {q: "When was the original Nintendo Entertainment System released in North America", a: "1983"},
-    {q: "Which popular video game character is currently not a playable character in the Super Smash Brothers series", a: "Waluigi"},
-    {q: "The introduction of which popular game console was considered the beginning of the sale competiton known as 'The Console Wars'?", a: "Sega Genesis"}
+    {q: "Which of these popular gaming characters is often considered the 'Mascot' of videogames?", a: "Mario", img: "../images/Mario.png"},
+    {q: "When was the original Nintendo Entertainment System released in North America", a: "1983", img: "../images/NES.jpg"},
+    {q: "Which popular video game character is currently not a playable character in the Super Smash Brothers series", a: "Waluigi", img: "../images/WaluigiSad.png"},
+    {q: "The introduction of which popular game console was considered the beginning of the sale competiton known as 'The Console Wars'?", a: "Sega Genesis", img: "../images/SegaGenesis.png"}
 ];
 
 console.log(questions);
@@ -150,12 +150,12 @@ function renderQuestion() {
         console.log(availAnswers[questionIndex].a);
         if(questions[questionIndex].a !== $(this).text()){
         console.log("wrong");
-        alert("The correct answer is " + questions[questionIndex].a);
+        $(".prompt").text("The correct answer is " + questions[questionIndex].a);
         questionIndex++;
         renderQuestion();
         } else {
         console.log("correct");
-        alert("Correct!");
+        $(".prompt").text("Correct!");
         questionIndex++;
         score++;
         renderQuestion();
