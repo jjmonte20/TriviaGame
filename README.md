@@ -1,5 +1,7 @@
 # TriviaGame
 
+https://jjmonte20.github.io/TriviaGame/
+
 Welcome to the readme for my trivia game.
 
 It is a videogame quiz, clicking any of the buttons answers the question asked, if correct, prompts correct.
