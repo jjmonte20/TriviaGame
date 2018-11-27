@@ -151,6 +151,7 @@ function renderQuestion() {
         if(questions[questionIndex].a !== $(this).text()){
         console.log("wrong");
         $(".prompt").text("The correct answer is " + questions[questionIndex].a);
+        $("img").attr("src", questions[questionIndex].img);
         questionIndex++;
         renderQuestion();
         } else {
